@@ -28,14 +28,15 @@ export default function ProjectScreen({ title, url, videoSrc, position, rotation
         onClick={() => window.open(url, '_blank')}
       >
         <planeGeometry args={[4, 2.5]} />
-        <meshBasicMaterial transparent opacity={0} />
+        {/* Invisible mesh just for catching mouse events */}
+        <meshBasicMaterial transparent opacity={0} depthWrite={false} />
         
         <Html
           transform
-          occlude
+          scale={0.005} // 800px * 0.005 = 4 units in 3D space
           position={[0, 0, 0]}
           style={{
-            width: '800px', // rendering at double resolution for crispness
+            width: '800px',
             height: '500px',
             pointerEvents: 'none',
             borderRadius: '16px',
@@ -71,7 +72,7 @@ export default function ProjectScreen({ title, url, videoSrc, position, rotation
         </Html>
       </mesh>
       
-      <Html position={[0, -1.6, 0]} center zIndexRange={[100, 0]}>
+      <Html transform position={[0, -1.6, 0]} scale={0.05} center>
         <div style={{
           color: 'white',
           fontSize: '24px',
