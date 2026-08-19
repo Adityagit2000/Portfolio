@@ -33,7 +33,7 @@ export default function ProjectScreen({ title, url, videoSrc, position, rotation
         
         <Html
           transform
-          scale={0.005} // 800px * 0.005 = 4 units in 3D space
+          scale={0.4} // Changed from 0.005 to 0.4 so it takes up reasonable space
           position={[0, 0, 0]}
           style={{
             width: '800px',
@@ -72,7 +72,7 @@ export default function ProjectScreen({ title, url, videoSrc, position, rotation
         </Html>
       </mesh>
       
-      <Html transform position={[0, -1.6, 0]} scale={0.05} center>
+      <Html transform position={[0, -1.6, 0]} scale={0.5} center>
         <div style={{
           color: 'white',
           fontSize: '24px',
